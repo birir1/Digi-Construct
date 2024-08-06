@@ -8,6 +8,6 @@ class OrderHistoryController extends Controller
 {
     public function index()
     {
-        return view('frontend.user.oderHistory');
+        return view('frontend.user.orderHistory');
     }
 }

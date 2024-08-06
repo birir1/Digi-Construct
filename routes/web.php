@@ -42,7 +42,7 @@ Route::get('/userProfile', function () {
 
 Route::get('/user-profile', [UserProfileController::class, 'index'])->name('userProfile');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [OrderHistoryController::class, 'index'])->name('orderHistory');
+Route::get('/orderHistory', [OrderHistoryController::class, 'index'])->name('orderHistory');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

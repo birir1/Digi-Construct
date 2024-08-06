@@ -141,7 +141,7 @@
         <ul class="sidebar-menu">
             <li><a href="{{ route('home') }}" class="sidebar-link">Home</a></li>
             <li><a href="{{ route('userProfile') }}" class="sidebar-link">Profile</a></li>
-            <li><a href="{{ route('oderHistory') }}" class="sidebar-link">Order-History</a></li>
+            <li><a href="{{ route('orderHistory') }}" class="sidebar-link">Order-History</a></li>
             <li><a href="#" class="sidebar-link">Cart Items</a></li>
             <li><a href="#" class="sidebar-link">Orders</a></li>
             <li><a href="#" class="sidebar-link">Payments</a></li>
