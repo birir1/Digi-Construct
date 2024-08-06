@@ -142,7 +142,7 @@
             <li><a href="{{ route('home') }}" class="sidebar-link">Home</a></li>
             <li><a href="{{ route('userProfile') }}" class="sidebar-link">Profile</a></li>
             <li><a href="{{ route('orderHistory') }}" class="sidebar-link">Order-History</a></li>
-            <li><a href="#" class="sidebar-link">Cart Items</a></li>
+            <li><a href="{{ route('cartItems') }}" class="sidebar-link">Cart Items</a></li>
             <li><a href="#" class="sidebar-link">Orders</a></li>
             <li><a href="#" class="sidebar-link">Payments</a></li>
             <li><a href="#" class="sidebar-link">Messages</a></li>

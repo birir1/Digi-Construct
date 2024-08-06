@@ -142,7 +142,7 @@
             <li><a href="{{ route('home') }}" class="sidebar-link">Home</a></li>
             <li><a href="{{ route('userProfile') }}" class="sidebar-link">Profile</a></li>
             <li><a href="{{ route('orderHistory') }}" class="sidebar-link">Order-History</a></li>
-            <li><a href="#" class="sidebar-link">Cart Items</a></li>
+            <li><a href="{{ route('cartItems') }}" class="sidebar-link">Cart Items</a></li>
             <li><a href="#" class="sidebar-link">Orders</a></li>
             <li><a href="#" class="sidebar-link">Payments</a></li>
             <li><a href="#" class="sidebar-link">Messages</a></li>
@@ -165,7 +165,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                    {{ __("You're logged in! User-Profile") }}
                 </div>
             </div>
         </div>

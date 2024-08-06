@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderHistoryController;
+use App\Http\Controllers\CartItemsController;
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -43,6 +44,7 @@ Route::get('/userProfile', function () {
 Route::get('/user-profile', [UserProfileController::class, 'index'])->name('userProfile');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/orderHistory', [OrderHistoryController::class, 'index'])->name('orderHistory');
+Route::get('/cartItems', [CartItemsController::class, 'index'])->name('cartItems');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
