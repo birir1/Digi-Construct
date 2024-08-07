@@ -129,104 +129,77 @@
         border-radius: 4px;
     }
 
-    /*user-profile*/
 
-    .profile-container {
+    /*message*/
+
+    .msg-container {
             margin-top: 50px;
             margin-bottom: 50px;
         }
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: bold;
-            color: #13365f;
-            font-size: 28px;
+        .msg-sidebar {
+            background-color: #34495e;
+            padding: 20px;
+            height: 80vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
         }
-        .profile-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        .profile-card h5 {
-            color: #13365f;
-            font-size: 22px;
+        .msg-sidebar-header {
+            color: #ecf0f1;
             margin-bottom: 20px;
-        }
-        .profile-card .profile-info {
-            margin-bottom: 20px;
-        }
-        .profile-card .profile-info label {
             font-weight: bold;
-            color: #13365f;
-            display: block;
-            margin-bottom: 5px;
         }
-        .profile-card .profile-info p {
-            margin: 0;
-            color: #555555;
-        }
-        .profile-card .edit-btn {
-            background-color: #13365f;
-            color: #ffffff;
-            border-radius: 25px;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            border: none;
+        .msg-thread {
+            background-color: #2c3e50;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            color: #ecf0f1;
             cursor: pointer;
         }
-        .profile-card .edit-btn:hover {
-            background-color: #0e2a44;
+        .msg-thread:hover {
+            background-color: #e74c3c;
         }
-        .profile-card .profile-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .profile-card .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-        .profile-card .profile-image img {
-            width: 100%;
-            height: auto;
-        }
-        .profile-card .profile-details {
-            text-align: left;
-        }
-        .settings-card {
+        .msg-main-content {
+            padding: 20px;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
         }
-        .settings-card h5 {
-            color: #13365f;
-            font-size: 22px;
+        .msg-header {
             margin-bottom: 20px;
-        }
-        .settings-card .settings-info {
-            margin-bottom: 20px;
-        }
-        .settings-card .settings-info label {
             font-weight: bold;
-            color: #13365f;
-            display: block;
-            margin-bottom: 5px;
+            color: #2c3e50;
         }
-        .settings-card .settings-info p {
-            margin: 0;
-            color: #555555;
+        .msg-bubble {
+            background-color: #ecf0f1;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .msg-bubble-sent {
+            background-color: #e74c3c;
+            color: #ffffff;
+            text-align: right;
+        }
+        .msg-input-container {
+            margin-top: 20px;
+        }
+        .msg-input-textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .btn-msg-send {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin-top: 10px;
         }
 </style>
 
@@ -265,46 +238,47 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in! User-Profile") }}
+                    {{ __("You're logged in! messages") }}
                 </div>
             </div>
         </div>
 
 
-
-        <div class="container profile-container">
-            <h2 class="profile-header">User Profile</h2>
-    
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-image">
-                        <img src="https://via.placeholder.com/120" alt="Profile Picture">
+        <div class="container msg-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="msg-sidebar">
+                        <h2 class="msg-sidebar-header">Conversations</h2>
+                        <div class="msg-thread">
+                            <p>John Doe</p>
+                        </div>
+                        <div class="msg-thread">
+                            <p>Jane Smith</p>
+                        </div>
+                        <div class="msg-thread">
+                            <p>Construction Team</p>
+                        </div>
                     </div>
-                    <div class="profile-details">
-                        <h5>John Doe</h5>
-                        <p>Email: john.doe@example.com</p>
-                        <p>Phone: +1234567890</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="msg-main-content">
+                        <h2 class="msg-header">John Doe</h2>
+                        <div class="msg-bubble msg-bubble-received">
+                            <p>Hey there! How's the construction going?</p>
+                        </div>
+                        <div class="msg-bubble msg-bubble-sent">
+                            <p>Hi John! It's going great, thanks for asking.</p>
+                        </div>
+                        <div class="msg-bubble msg-bubble-received">
+                            <p>Good to hear! Let me know if you need any help.</p>
+                        </div>
+                        <div class="msg-input-container">
+                            <textarea class="msg-input-textarea" placeholder="Type your message..."></textarea>
+                            <button class="btn btn-msg-send">Send</button>
+                        </div>
                     </div>
-                </div>
-                <a href="#" class="edit-btn">Edit Profile</a>
-            </div>
-    
-            <div class="settings-card">
-                <h5>Account Settings</h5>
-                <div class="settings-info">
-                    <label for="settingsUsername">Username:</label>
-                    <p id="settingsUsername">johndoe123</p>
-                </div>
-                <div class="settings-info">
-                    <label for="settingsPassword">Password:</label>
-                    <p id="settingsPassword">******</p>
-                </div>
-                <div class="settings-info">
-                    <label for="settingsNotifications">Notifications:</label>
-                    <p id="settingsNotifications">Enabled</p>
                 </div>
             </div>
         </div>
-    
 
 @endsection

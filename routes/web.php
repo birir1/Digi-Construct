@@ -6,6 +6,11 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderHistoryController;
 use App\Http\Controllers\CartItemsController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -45,6 +50,11 @@ Route::get('/user-profile', [UserProfileController::class, 'index'])->name('user
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/orderHistory', [OrderHistoryController::class, 'index'])->name('orderHistory');
 Route::get('/cartItems', [CartItemsController::class, 'index'])->name('cartItems');
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+Route::get('/payments', [PaymentsController::class, 'index'])->name('payments');
+Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
+Route::get('/notifications', [NotificationsController::class, 'index'])->name('notifications');
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

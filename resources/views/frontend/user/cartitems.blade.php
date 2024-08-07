@@ -128,6 +128,87 @@
         border: 1px solid #ddd;
         border-radius: 4px;
     }
+
+
+    /*cart-items*/
+
+    .cart-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .cart-header {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #13365f;
+        }
+        .cart-item {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #13365f;
+        }
+        .item-price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .item-quantity {
+            margin-top: 10px;
+        }
+        .cart-summary {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .summary-title {
+            font-weight: bold;
+            color: #13365f;
+            margin-bottom: 20px;
+        }
+        .summary-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .summary-total {
+            font-weight: bold;
+            color: #2ecc71;
+        }
+        .checkout-btn {
+            background-color: #13365f;
+            color: #ffffff;
+            border-radius: 25px;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        .checkout-btn:hover {
+            background-color: #0e2a44;
+        }
 </style>
 
 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -143,11 +224,11 @@
             <li><a href="{{ route('userProfile') }}" class="sidebar-link">Profile</a></li>
             <li><a href="{{ route('orderHistory') }}" class="sidebar-link">Order-History</a></li>
             <li><a href="{{ route('cartItems') }}" class="sidebar-link">Cart Items</a></li>
-            <li><a href="#" class="sidebar-link">Orders</a></li>
-            <li><a href="#" class="sidebar-link">Payments</a></li>
-            <li><a href="#" class="sidebar-link">Messages</a></li>
-            <li><a href="#" class="sidebar-link">Notifications</a></li>
-            <li><a href="#" class="sidebar-link">Settings</a></li>
+            <li><a href="{{ route('order') }}" class="sidebar-link">Orders</a></li>
+            <li><a href="{{ route('payments') }}" class="sidebar-link">Payments</a></li>
+            <li><a href="{{ route('messages') }}" class="sidebar-link">Messages</a></li>
+            <li><a href="{{ route('notifications') }}" class="sidebar-link">Notifications</a></li>
+            <li><a href="{{ route('settings') }}" class="sidebar-link">Settings</a></li>
             <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
@@ -169,5 +250,46 @@
                 </div>
             </div>
         </div>
+
+        <div class="container cart-container">
+            <h2 class="cart-header">Your Cart Items</h2>
+            <div class="cart-item">
+                <img src="https://via.placeholder.com/100" alt="Item Image" class="item-image">
+                <div class="item-details">
+                    <div class="item-title">Product A</div>
+                    <div class="item-price">$75.00</div>
+                    <div class="item-quantity">Quantity: 1</div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="https://via.placeholder.com/100" alt="Item Image" class="item-image">
+                <div class="item-details">
+                    <div class="item-title">Product B</div>
+                    <div class="item-price">$45.00</div>
+                    <div class="item-quantity">Quantity: 2</div>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-title">Cart Summary</div>
+                <div class="summary-detail">
+                    <span>Subtotal:</span>
+                    <span>$165.00</span>
+                </div>
+                <div class="summary-detail">
+                    <span>Shipping:</span>
+                    <span>$10.00</span>
+                </div>
+                <div class="summary-detail">
+                    <span>Tax:</span>
+                    <span>$5.00</span>
+                </div>
+                <div class="summary-detail summary-total">
+                    <span>Total:</span>
+                    <span>$180.00</span>
+                </div>
+                <a href="#" class="checkout-btn">Proceed to Checkout</a>
+            </div>
+        </div>
+    
 
 @endsection

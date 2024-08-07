@@ -129,58 +129,119 @@
         border-radius: 4px;
     }
 
-    /*oder-history page*/
+    /*order*/
 
-    .order-history-container {
+    /* .orders-wrapper {
             margin-top: 50px;
             margin-bottom: 50px;
         }
-        .order-history-header {
+        .header-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .order-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .order-header {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+        .order-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .summary-box {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+        .status-tag {
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            text-transform: capitalize;
+        }
+        .status-pending {
+            background-color: #f39c12;
+            color: #ffffff;
+        }
+        .status-completed {
+            background-color: #2ecc71;
+            color: #ffffff;
+        }
+        .status-cancelled {
+            background-color: #e74c3c;
+            color: #ffffff;
+        }
+        .order-btn {
+            background-color: #3498db;
+            color: #ffffff;
+            border-radius: 25px;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 20px;
+        } */
+
+
+        .orders-table-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .orders-table-header {
             text-align: center;
             margin-bottom: 30px;
             font-weight: bold;
             color: #13365f;
-            font-size: 24px;
         }
-        .order-history-table {
+        .custom-table {
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
             overflow: hidden;
-            border: 1px solid #e1e1e1;
         }
-        .order-history-table th, .order-history-table td {
+        .custom-table th, .custom-table td {
             text-align: center;
             padding: 15px;
         }
-        .order-history-table th {
-            background: linear-gradient(to right, #13365f, #0066cc);
+        .custom-table th {
+            background-color: #13365f;
             color: #ffffff;
             font-weight: bold;
         }
-        .order-history-table td {
-            background-color: #f0f8ff;
-            border-bottom: 1px solid #e1e1e1;
-        }
-        .order-history-table tr:last-child td {
-            border-bottom: none;
-        }
-        .order-status {
-            font-weight: bold;
-            padding: 5px;
-            border-radius: 5px;
+        .custom-table td {
+            background-color: #bdd6f0;
         }
         .order-status.pending {
             color: #f39c12;
-            background-color: #fff5e6;
+            font-weight: bold;
         }
         .order-status.completed {
             color: #2ecc71;
-            background-color: #e6f9e6;
+            font-weight: bold;
         }
         .order-status.cancelled {
             color: #e74c3c;
-            background-color: #fce6e6;
+            font-weight: bold;
         }
         .view-details-btn {
             background-color: #13365f;
@@ -191,16 +252,9 @@
             text-decoration: none;
             display: inline-block;
             font-size: 0.9rem;
-            transition: background-color 0.3s ease;
         }
         .view-details-btn:hover {
             background-color: #0e2a44;
-        }
-        .empty-cart {
-            text-align: center;
-            margin-top: 50px;
-            color: #13365f;
-            font-size: 18px;
         }
 </style>
 
@@ -239,20 +293,82 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in! orderHistory") }}
+                    {{ __("You're logged in! orders") }}
                 </div>
             </div>
         </div>
 
-        <div class="container order-history-container">
-            <h2 class="order-history-header">Your Order History</h2>
+        {{-- <div class="container orders-wrapper">
+            <h2 class="header-title">Your Orders</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Order Box Example -->
+                    <div class="order-box">
+                        <h3 class="order-header">Order #56789</h3>
+                        <div class="order-detail">
+                            <span>Product A</span>
+                            <span>$75.00</span>
+                        </div>
+                        <div class="order-detail">
+                            <span>Product B</span>
+                            <span>$45.00</span>
+                        </div>
+                        <div class="order-detail">
+                            <span>Shipping Fee</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="summary-box">
+                            <div class="summary-title">Order Summary</div>
+                            <div class="order-detail">
+                                <span>Total</span>
+                                <span>$130.00</span>
+                            </div>
+                        </div>
+                        <div class="status-tag status-pending">Status: Pending</div>
+                        <a href="#" class="order-btn">View Details</a>
+                    </div>
+    
+                    <!-- Another Order Box Example -->
+                    <div class="order-box">
+                        <h3 class="order-header">Order #56790</h3>
+                        <div class="order-detail">
+                            <span>Product C</span>
+                            <span>$60.00</span>
+                        </div>
+                        <div class="order-detail">
+                            <span>Product D</span>
+                            <span>$30.00</span>
+                        </div>
+                        <div class="order-detail">
+                            <span>Shipping Fee</span>
+                            <span>$8.00</span>
+                        </div>
+                        <div class="summary-box">
+                            <div class="summary-title">Order Summary</div>
+                            <div class="order-detail">
+                                <span>Total</span>
+                                <span>$98.00</span>
+                            </div>
+                        </div>
+                        <div class="status-tag status-completed">Status: Completed</div>
+                        <a href="#" class="order-btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
+
+        <div class="container orders-table-container">
+            <h2 class="orders-table-header">Your Orders</h2>
             <div class="table-responsive">
-                <table class="table table-striped order-history-table">
+                <table class="table table-striped custom-table">
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Date</th>
-                            <th>Items</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Shipping Fee</th>
                             <th>Total</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -261,38 +377,26 @@
                     <tbody>
                         <!-- Order Row Example -->
                         <tr>
-                            <td>#12345</td>
-                            <td>2024-07-10</td>
+                            <td>#56789</td>
                             <td>Product A, Product B</td>
-                            <td>$120.00</td>
-                            <td class="order-status completed">Completed</td>
+                            <td>2</td>
+                            <td>$75.00, $45.00</td>
+                            <td>$10.00</td>
+                            <td>$130.00</td>
+                            <td class="order-status pending">Pending</td>
                             <td><a href="#" class="view-details-btn">View Details</a></td>
                         </tr>
                         <!-- Another Order Row Example -->
                         <tr>
-                            <td>#12346</td>
-                            <td>2024-07-12</td>
-                            <td>Product C</td>
-                            <td>$45.00</td>
-                            <td class="order-status pending">Pending</td>
+                            <td>#56790</td>
+                            <td>Product C, Product D</td>
+                            <td>2</td>
+                            <td>$60.00, $30.00</td>
+                            <td>$8.00</td>
+                            <td>$98.00</td>
+                            <td class="order-status completed">Completed</td>
                             <td><a href="#" class="view-details-btn">View Details</a></td>
                         </tr>
-                        <!-- Additional Order Rows -->
-                        <tr>
-                            <td>#12347</td>
-                            <td>2024-07-15</td>
-                            <td>Product D, Product E</td>
-                            <td>$90.00</td>
-                            <td class="order-status cancelled">Cancelled</td>
-                            <td><a href="#" class="view-details-btn">View Details</a></td>
-                        </tr>
-                        <!-- Empty Cart Message -->
-                        <!-- Uncomment below to display when no orders -->
-                        <!--
-                        <tr>
-                            <td colspan="6" class="empty-cart">Your order history is empty.</td>
-                        </tr>
-                        -->
                     </tbody>
                 </table>
             </div>

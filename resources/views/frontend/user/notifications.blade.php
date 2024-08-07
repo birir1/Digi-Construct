@@ -129,104 +129,91 @@
         border-radius: 4px;
     }
 
-    /*user-profile*/
+    /*notifications*/
 
-    .profile-container {
+    .notifications-container {
             margin-top: 50px;
             margin-bottom: 50px;
         }
-        .profile-header {
+        .notifications-header {
             text-align: center;
             margin-bottom: 30px;
             font-weight: bold;
             color: #13365f;
-            font-size: 28px;
+            font-size: 24px;
         }
-        .profile-card {
+        .notifications-card {
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 20px;
         }
-        .profile-card h5 {
-            color: #13365f;
-            font-size: 22px;
-            margin-bottom: 20px;
+        .notification-item {
+            border-bottom: 1px solid #e1e1e1;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
         }
-        .profile-card .profile-info {
-            margin-bottom: 20px;
+        .notification-item:last-child {
+            border-bottom: none;
         }
-        .profile-card .profile-info label {
-            font-weight: bold;
-            color: #13365f;
-            display: block;
-            margin-bottom: 5px;
+        .notification-item:hover {
+            background-color: #e6f4ff;
         }
-        .profile-card .profile-info p {
-            margin: 0;
-            color: #555555;
-        }
-        .profile-card .edit-btn {
+        .notification-icon {
+            width: 30px;
+            height: 30px;
             background-color: #13365f;
             color: #ffffff;
-            border-radius: 25px;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .profile-card .edit-btn:hover {
-            background-color: #0e2a44;
-        }
-        .profile-card .profile-header {
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-right: 15px;
         }
-        .profile-card .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        .notification-content {
+            flex: 1;
         }
-        .profile-card .profile-image img {
-            width: 100%;
-            height: auto;
-        }
-        .profile-card .profile-details {
-            text-align: left;
-        }
-        .settings-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-            padding: 30px;
-        }
-        .settings-card h5 {
-            color: #13365f;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        .settings-card .settings-info {
-            margin-bottom: 20px;
-        }
-        .settings-card .settings-info label {
+        .notification-title {
             font-weight: bold;
             color: #13365f;
-            display: block;
-            margin-bottom: 5px;
         }
-        .settings-card .settings-info p {
-            margin: 0;
-            color: #555555;
+        .notification-time {
+            color: #999999;
+            font-size: 11px;
+        }
+        .notification-status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+        }
+        .status-read {
+            background-color: #d0f0c0;
+            color: #4caf50;
+        }
+        .status-unread {
+            background-color: #ffdede;
+            color: #f44336;
+        }
+        .clear-btn {
+            display: block;
+            width: 100%;
+            background-color: #13365f;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .clear-btn:hover {
+            background-color: #0e2a44;
         }
 </style>
 
@@ -265,46 +252,52 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in! User-Profile") }}
+                    {{ __("You're logged in! notifications") }}
                 </div>
             </div>
         </div>
 
 
-
-        <div class="container profile-container">
-            <h2 class="profile-header">User Profile</h2>
+        <div class="container notifications-container">
+            <h2 class="notifications-header">Notifications</h2>
     
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-image">
-                        <img src="https://via.placeholder.com/120" alt="Profile Picture">
+            <div class="notifications-card">
+                <!-- Notification Item -->
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fa fa-info"></i>
                     </div>
-                    <div class="profile-details">
-                        <h5>John Doe</h5>
-                        <p>Email: john.doe@example.com</p>
-                        <p>Phone: +1234567890</p>
+                    <div class="notification-content">
+                        <div class="notification-title">New Project Update</div>
+                        <div class="notification-time">2024-08-07 10:00 AM</div>
                     </div>
+                    <div class="notification-status status-unread">Unread</div>
                 </div>
-                <a href="#" class="edit-btn">Edit Profile</a>
-            </div>
-    
-            <div class="settings-card">
-                <h5>Account Settings</h5>
-                <div class="settings-info">
-                    <label for="settingsUsername">Username:</label>
-                    <p id="settingsUsername">johndoe123</p>
+                <!-- Another Notification Item -->
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Payment Confirmed</div>
+                        <div class="notification-time">2024-08-06 03:15 PM</div>
+                    </div>
+                    <div class="notification-status status-read">Read</div>
                 </div>
-                <div class="settings-info">
-                    <label for="settingsPassword">Password:</label>
-                    <p id="settingsPassword">******</p>
+                <!-- More Notification Items -->
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fa fa-exclamation"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Action Required</div>
+                        <div class="notification-time">2024-08-05 11:45 AM</div>
+                    </div>
+                    <div class="notification-status status-unread">Unread</div>
                 </div>
-                <div class="settings-info">
-                    <label for="settingsNotifications">Notifications:</label>
-                    <p id="settingsNotifications">Enabled</p>
-                </div>
+                <!-- Clear Button -->
+                <button class="clear-btn">Clear All Notifications</button>
             </div>
         </div>
-    
 
 @endsection

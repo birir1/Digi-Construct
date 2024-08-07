@@ -143,11 +143,11 @@
             <li><a href="{{ route('userProfile') }}" class="sidebar-link">Profile</a></li>
             <li><a href="{{ route('orderHistory') }}" class="sidebar-link">Order-History</a></li>
             <li><a href="{{ route('cartItems') }}" class="sidebar-link">Cart Items</a></li>
-            <li><a href="#" class="sidebar-link">Orders</a></li>
-            <li><a href="#" class="sidebar-link">Payments</a></li>
-            <li><a href="#" class="sidebar-link">Messages</a></li>
-            <li><a href="#" class="sidebar-link">Notifications</a></li>
-            <li><a href="#" class="sidebar-link">Settings</a></li>
+            <li><a href="{{ route('order') }}" class="sidebar-link">Orders</a></li>
+            <li><a href="{{ route('payments') }}" class="sidebar-link">Payments</a></li>
+            <li><a href="{{ route('messages') }}" class="sidebar-link">Messages</a></li>
+            <li><a href="{{ route('notifications') }}" class="sidebar-link">Notifications</a></li>
+            <li><a href="{{ route('settings') }}" class="sidebar-link">Settings</a></li>
             <li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
@@ -187,7 +187,7 @@
                 <p>Content for card 4.</p>
             </div>
             <div class="card card-5">
-                <h3>Card 5</h3>
+                <h3>Designs</h3>
                 <p>Content for card 5.</p>
             </div>
         </div>
