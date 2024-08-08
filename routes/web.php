@@ -11,6 +11,11 @@ use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\LoggedUserController;
+use App\Http\Controllers\ProductController;
+
+
+
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -22,6 +27,10 @@ Route::get('/home', function () {
 
 Route::get('/about', function () {
     return view('frontend.about');
+});
+
+Route::get('/products', function () {
+    return view('frontend.products');
 });
 
 Route::get('/services', function () {
@@ -55,6 +64,48 @@ Route::get('/payments', [PaymentsController::class, 'index'])->name('payments');
 Route::get('/messages', [MessagesController::class, 'index'])->name('messages');
 Route::get('/notifications', [NotificationsController::class, 'index'])->name('notifications');
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+
+// Route to show the user's profile
+Route::get('/user-profile', [LoggedUserController::class, 'show'])->name('userProfile.show');
+
+
+// Route to show the user's profile
+Route::get('/user-profile/view', [LoggedUserController::class, 'show'])->name('userProfile.show');
+Route::get('/user-profile/edit', [LoggedUserController::class, 'edit'])->name('userProfile.edit');
+Route::put('/user-profile/update', [LoggedUserController::class, 'update'])->name('userProfile.update');
+Route::delete('/user-profile/delete', [LoggedUserController::class, 'destroy'])->name('userProfile.destroy');
+
+
+Route::get('/user-profile', [UserProfileController::class, 'index'])->name('userProfile');
+
+Route::get('/user-profile', [UserProfileController::class, 'show'])->name('userProfile');
+
+
+
+// web.php (routes file)
+
+Route::get('/profile', [ProfileController::class, 'show'])->name('userProfile');
+
+
+
+/*Products*/
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+// Display a specific product
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+// Create a new product
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+// Edit a product
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+
+// Delete a product
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -278,10 +278,30 @@
                 <div class="profile-info">
                     <h5>{{ $user->name }}</h5>
                     <p>Email: {{ $user->email }}</p>
-                    <p>Phone: {{ $user->phone }}</p>
+                    <p>Phone: {{ $user->phone ?? 'N/A' }}</p> <!-- Use 'N/A' or a default value if phone is not set -->
                 </div>
                 <a href="{{ route('profile.edit') }}" class="edit-btn">Edit Profile</a>
             </div>
         </div>
 
 @endsection
+
+
+
+
+{{-- 
+@extends('layouts.app')
+
+@section('content')
+<div class="container profile-container">
+    <div class="profile-card">
+        <h2 class="text-center" style="color: #13365f;">User Profile</h2>
+        <div class="profile-info">
+            <h5>{{ $user->name }}</h5>
+            <p>Email: {{ $user->email }}</p>
+            <p>Phone: {{ $user->phone }}</p>
+        </div>
+        <a href="{{ route('profile.edit') }}" class="edit-btn">Edit Profile</a>
+    </div>
+</div>
+@endsection --}}

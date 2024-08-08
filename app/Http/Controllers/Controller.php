@@ -32,4 +32,9 @@ abstract class Controller
     {
         return view('frontend.user.userProfile');
     }
+
+    public function index()
+    {
+        return view('frontend.user.products');
+    }
 }
